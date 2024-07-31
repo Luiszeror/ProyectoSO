@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #abrir pagina del juego
-firefox index.html
+firefox index.html&> /dev/null &
 
 # Definir desafíos y claves
 declare -A desafios
