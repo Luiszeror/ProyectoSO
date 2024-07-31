@@ -22,7 +22,7 @@ desafios[14]="Nivel 14: Desafío aún no definido."
 desafios[15]="Nivel 15: Desafío aún no definido."
 
 declare -A claves
-claves[1]="claveNivel1"
+claves[1]="GameBashProject"
 claves[2]="claveNivel2"
 claves[3]="claveNivel3"
 claves[4]="claveNivel4"

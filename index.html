@@ -3,10 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Sencilla</title>
+    <title>BashGameProject</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1, p {
+            color: white;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 800px; 
+        }
+        .button-container button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            color: black;
+            cursor: pointer;
+            flex-basis: calc(20% - 10px); 
+            flex-grow: 1;
+            box-sizing: border-box;
+        }
+        .button-white {
+            background-color: white;
+            color: black;
+        }
+        .button-green {
+            background-color: green;
+        }
+        .button-yellow {
+            background-color: yellow;
+        }
+        .button-red {
+            background-color: red;
+        }
+        .content {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hola, Mundo!</h1>
-    <p>Esta es una página HTML sencilla.</p>
+    <h1> >>BashGameProject<< </h1>
+    <p>Proyecto de Sistemas Operativos desarrollado por:</p>
+    <p>Robelto Luis Esteban</p>
+    <p>Urueña Laura Valentina</p>
+    <p>Vargas Daniel Mauricio</p>
+    <p></p><p></p>
+
+    <div class="button-container">
+        <button class="button-white" onclick="showContent('Nivel 0', 'La contraseña para ingresar al nivel 1 es el nombre del juego, buena suerte!')">Nivel 0</button>
+        <button class="button-green" onclick="showContent('Nivel 1', 'Descripción del Nivel 1')">Nivel 1</button>
+        <button class="button-green" onclick="showContent('Nivel 2', 'Descripción del Nivel 2')">Nivel 2</button>
+        <button class="button-green" onclick="showContent('Nivel 3', 'Descripción del Nivel 3')">Nivel 3</button>
+        <button class="button-green" onclick="showContent('Nivel 4', 'Descripción del Nivel 4')">Nivel 4</button>
+        <button class="button-green" onclick="showContent('Nivel 5', 'Descripción del Nivel 5')">Nivel 5</button>
+        <button class="button-yellow" onclick="showContent('Nivel 6', 'Descripción del Nivel 6')">Nivel 6</button>
+        <button class="button-yellow" onclick="showContent('Nivel 7', 'Descripción del Nivel 7')">Nivel 7</button>
+        <button class="button-yellow" onclick="showContent('Nivel 8', 'Descripción del Nivel 8')">Nivel 8</button>
+        <button class="button-yellow" onclick="showContent('Nivel 9', 'Descripción del Nivel 9')">Nivel 9</button>
+        <button class="button-yellow" onclick="showContent('Nivel 10', 'Descripción del Nivel 10')">Nivel 10</button>
+        <button class="button-red" onclick="showContent('Nivel 11', 'Descripción del Nivel 11')">Nivel 11</button>
+        <button class="button-red" onclick="showContent('Nivel 12', 'Descripción del Nivel 12')">Nivel 12</button>
+        <button class="button-red" onclick="showContent('Nivel 13', 'Descripción del Nivel 13')">Nivel 13</button>
+        <button class="button-red" onclick="showContent('Nivel 14', 'Descripción del Nivel 14')">Nivel 14</button>
+        <button class="button-red" onclick="showContent('Nivel 15', 'Descripción del Nivel 15')">Nivel 15</button>
+    </div>
+
+    <div id="content" class="content">
+        <h2 id="content-title"></h2>
+        <p id="content-text"></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+
+    <script>
+        function showContent(level, text) {
+            document.getElementById('content-title').innerText = level;
+            document.getElementById('content-text').innerText = text;
+            document.getElementById('content').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
