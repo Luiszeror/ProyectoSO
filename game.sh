@@ -23,13 +23,15 @@ desafios[15]="Nivel 15: Desafío aún no definido."
 
 declare -A claves
 claves[1]="BashGameProject"
-claves[2]="claveNivel2"
-claves[3]="claveNivel3"
-claves[4]="claveNivel4"
-claves[5]="claveNivel5"
-claves[6]="claveNivel6"
-claves[7]="claveNivel7"
-claves[6]="claveNivel8"
+claves[2]="k1l2m3n4o5"
+claves[3]="a1b2c3d4e5"
+claves[4]="f6g7h8i9j0"
+claves[5]="z6a7b8c9d0"
+#Falta nivel 6
+claves[6]="e1f2g3h4i5"
+claves[7]="k2l3m4n5o6"
+claves[8]="o1p2q3r4s5"
+claves[9]="t6u7v8w9x0"
 claves[10]="31"
 claves[11]="deamo%n32o&4n%00^01*12%22._dea_m4o%n_2-o&*n%00^01%*12%x2%%2ae33l02w_2d1a"
 claves[12]="zero21ohlord_221one-*"
@@ -43,27 +45,27 @@ function generar_archivo {
        
         mkdir -p /tmp/archivos_txt
 
-        echo "nivel 1: BashGameProject" > /tmp/archivos_txt/sh.txt
+        echo "k1l2m3n4o5" > /tmp/archivos_txt/sh.txt
 
         echo "Este es el archivo con extensión .py.txt" > /tmp/archivos_txt/py.txt
 
         echo "Este es el archivo con extensión .pl.txt" > /tmp/archivos_txt/pl.txt
 
         echo "Este es el archivo con extensión .rb.txt" > /tmp/archivos_txt/rb.txt
-        ;;
+            ;;
         2)
             mkdir -p ./secreto
-            echo -e "claveNivel2" > ./secreto/=
+            echo -e "a1b2c3d4e5" > ./secreto/=
             ;;
         3)
-            echo -e "Linea 1\nLinea 2\nLinea 3\nLinea 4\nLinea 5\nLinea 6\nClave: claveNivel3" > /tmp/nivel3.txt
+            echo -e "Linea 1\nLinea 2\nLinea 3\nLinea 4\nLinea 5\nLinea 6\nClave: f6g7h8i9j0" > /tmp/nivel3.txt
             ;;
         4)
-            echo -e "Esta es una línea\nchallenge\nOtra línea más\nClave: claveNivel4" > /tmp/nivel4.txt
+            echo -e "Esta es una línea\nchallenge\nOtra línea más\nClave: z6a7b8c9d0" > /tmp/nivel4.txt
             ;;
         5)
             mkdir -p /tmp/nivel5
-            echo "claveNivel5" > /tmp/nivel5/clave.txt
+            echo "e1f2g3h4i5" > /tmp/nivel5/clave.txt
             
             chmod 000 /tmp/nivel5/clave.txt
             ;;
@@ -71,11 +73,11 @@ function generar_archivo {
 
 
 
-        ;;    
+            ;;    
         7)
             mkdir -p /tmp/secret_files
 
-            echo "claveNivel7" > /tmp/secret_files/secret.txt
+            echo "o1p2q3r4s5" > /tmp/secret_files/secret.txt
 
             zip -j /tmp/secret_files/secret_files.zip /tmp/secret_files/secret.txt
  
@@ -87,7 +89,7 @@ function generar_archivo {
 
         sudo mkdir -p /tmp/nivel_busqueda
 
-        echo "claveNivel8" | sudo tee /tmp/nivel_busqueda/archivo_secreto.txt > /dev/null
+        echo "t6u7v8w9x0" | sudo tee /tmp/nivel_busqueda/archivo_secreto.txt > /dev/null
 
         sudo truncate -s 40 /tmp/nivel_busqueda/archivo_secreto.txt
         sudo chmod 644 /tmp/nivel_busqueda/archivo_secreto.txt
