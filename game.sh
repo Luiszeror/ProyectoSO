@@ -6,13 +6,13 @@ firefox index.html &> /dev/null &
 # Definir desafíos y claves
 declare -A desafios
 desafios[1]="Nivel 1: Listar todos los archivos en el directorio actual."
-desafios[2]="Nivel 2: Mostrar el contenido del archivo /tmp/nivel2.txt."
+desafios[2]="Nivel 2: Mostrar el contenido del archivo /secreto/=."
 desafios[3]="Nivel 3: Mostrar las primeras 5 líneas del archivo /tmp/nivel3.txt."
 desafios[4]="Nivel 4: Buscar la palabra 'challenge' en el archivo /tmp/nivel4.txt."
-desafios[5]="Nivel 5: Desafío aún no definido."
+desafios[5]="Nivel 5: Accede al Archivo con Permisos Restringidos desde el /tmp/nivel5"
 desafios[6]="Nivel 6: Desafío aún no definido."
-desafios[7]="Nivel 7: Desafío aún no definido."
-desafios[8]="Nivel 8: Desafío aún no definido."
+desafios[7]="Nivel 7: Encuentra  en  /var/tmp y descomprime el archivo secret_files.zip para encontrar la contraseña."
+desafios[8]="Nivel 8: debes encontrar un archivo en el servidor que cumpla con las siguientes propiedades:Propietario: userX, Grupo: groupY, Tamaño: 40 bytes"
 desafios[9]="Nivel 9: Desafío aún no definido."
 desafios[10]="Nivel 10: Contar el número de veces que aparece la letra 'x' en el archivo /tmp/desafio10/contar_x.txt."
 desafios[11]="Nivel 11: Algo sucedió con el archivo hexadecimal que contiene la clave en el directorio /tmp/desafio11/. Fue ligeramente corrompido conteniendo los siguientes símbolos @ ! # en ASCII. Busca la forma de filtrar estos símbolos y obtener la clave correcta."
@@ -26,6 +26,10 @@ claves[1]="BashGameProject"
 claves[2]="claveNivel2"
 claves[3]="claveNivel3"
 claves[4]="claveNivel4"
+claves[5]="claveNivel5"
+claves[6]="claveNivel6"
+claves[7]="claveNivel7"
+claves[6]="claveNivel8"
 claves[10]="31"
 claves[11]="deamo%n32o&4n%00^01*12%22._dea_m4o%n_2-o&*n%00^01%*12%x2%%2ae33l02w_2d1a"
 claves[12]="zero21ohlord_221one-*"
@@ -36,7 +40,8 @@ function generar_archivo {
     local nivel="$1"
     case $nivel in
         2)
-            echo "Contenido del nivel 2. Clave: claveNivel2" > /tmp/nivel2.txt
+            mkdir -p ./secreto
+            echo -e "claveNivel2" > ./secreto/=
             ;;
         3)
             echo -e "Linea 1\nLinea 2\nLinea 3\nLinea 4\nLinea 5\nLinea 6\nClave: claveNivel3" > /tmp/nivel3.txt
@@ -44,6 +49,38 @@ function generar_archivo {
         4)
             echo -e "Esta es una línea\nchallenge\nOtra línea más\nClave: claveNivel4" > /tmp/nivel4.txt
             ;;
+        5)
+            mkdir -p /tmp/nivel5
+            echo "claveNivel5" > /tmp/nivel5/clave.txt
+            
+            chmod 000 /tmp/nivel5/clave.txt
+            ;;
+        6)
+
+
+
+        ;;    
+        7)
+            mkdir -p /tmp/secret_files
+
+            echo "claveNivel7" > /tmp/secret_files/secret.txt
+
+            zip -j /tmp/secret_files/secret_files.zip /tmp/secret_files/secret.txt
+ 
+            ;;
+        8)
+
+        sudo groupadd groupY
+        sudo useradd -g groupY userX
+
+        sudo mkdir -p /tmp/nivel_busqueda
+
+        echo "claveNivel8" | sudo tee /tmp/nivel_busqueda/archivo_secreto.txt > /dev/null
+
+        sudo truncate -s 40 /tmp/nivel_busqueda/archivo_secreto.txt
+        sudo chmod 644 /tmp/nivel_busqueda/archivo_secreto.txt
+
+        ;;    
         10)
             mkdir -p /tmp/desafio10
             echo -e "a1b2c3x@!#x^&()_+|}{\":?><,./x\nx1234567890x!@#$%^&()+-=~|x qwertyuiopasdfghjklzxcvbnmXxXx 12x34x56x78x90!@#$%^&*()_+|}{: xzcvbnmasdfghjkl;':,.<>?1234567890 ~!@#$%^&*()+-=x|}{\":?><,./x\nxXxXxXxXxXxXxXxXxXxXxXxXxXxXx\na!b@c#de%f^g&h*i(j)k+l,m.n/o\n;\'\"?" > /tmp/desafio10/contar_x.txt
