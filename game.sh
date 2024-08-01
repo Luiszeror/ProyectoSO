@@ -5,7 +5,7 @@ firefox index.html &> /dev/null &
 
 # Definir desafíos y claves
 declare -A desafios
-desafios[1]="Nivel 1: Listar todos los archivos en el directorio actual."
+desafios[1]="Nivel 1: Entrar al directorio /tmp/archivos_txt y buscar la extension del script"
 desafios[2]="Nivel 2: Mostrar el contenido del archivo /secreto/=."
 desafios[3]="Nivel 3: Mostrar las primeras 5 líneas del archivo /tmp/nivel3.txt."
 desafios[4]="Nivel 4: Buscar la palabra 'challenge' en el archivo /tmp/nivel4.txt."
@@ -39,6 +39,18 @@ claves[13]="10_37_40"
 function generar_archivo {
     local nivel="$1"
     case $nivel in
+        1)
+       
+        mkdir -p /tmp/archivos_txt
+
+        echo "nivel 1: BashGameProject" > /tmp/archivos_txt/sh.txt
+
+        echo "Este es el archivo con extensión .py.txt" > /tmp/archivos_txt/py.txt
+
+        echo "Este es el archivo con extensión .pl.txt" > /tmp/archivos_txt/pl.txt
+
+        echo "Este es el archivo con extensión .rb.txt" > /tmp/archivos_txt/rb.txt
+        ;;
         2)
             mkdir -p ./secreto
             echo -e "claveNivel2" > ./secreto/=
